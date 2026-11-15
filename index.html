@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PrepPilot - AI Career and Placement Prep</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="app">
+
+    <!-- TOP BAR: logo on the left, menu on the right -->
+    <header class="topbar">
+      <div class="container bar">
+        <a class="brand" href="#" @click.prevent="go('home')"><span class="logo">P</span> PrepPilot</a>
+        <nav aria-label="Main menu">
+          <button v-for="item in menu" :key="item.id" :class="{ active: tab === item.id }" @click="go(item.id)">{{ item.label }}</button>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <div class="container" v-if="error"><p class="error">{{ error }}</p></div>
+
+      <!-- ================= HOME ================= -->
+      <div v-if="tab === 'home'">
+        <section class="hero">
+          <div class="container">
+            <p class="eyebrow">Free &bull; runs on your computer &bull; local AI</p>
+            <h1>Get placement-ready with a clear roadmap and an AI coach</h1>
+            <p class="lead">Find the career that fits you, follow a step-by-step roadmap, check your resume against a real job role, and practise interviews one question at a time.</p>
+            <div class="cta">
+              <button class="btn primary big" @click="go('roadmap')">Explore roadmaps</button>
+              <button class="btn outline big" @click="go('interview')">Start mock interview</button>
+            </div>
+            <ul class="stats">
+              <li><strong>{{ roadmaps.length }}</strong> roadmaps</li>
+              <li><strong>{{ totalTopics }}</strong> topics to learn</li>
+              <li><strong>4</strong> AI tools</li>
+              <li><strong>Rs 0</strong> cost</li>
+            </ul>
+          </div>
+        </section>
+
+        <section class="container features">
+          <article class="feature">
+            <span class="icon">&#129517;</span>
+            <h3>Career guide</h3>
+            <p>Enter your skills and interests and the AI coach suggests careers that suit you.</p>
+            <button class="link" @click="go('career')">Find my career &rarr;</button>
+          </article>
+          <article class="feature">
+            <span class="icon">&#128506;</span>
+            <h3>Career roadmaps</h3>
+            <p>See every topic you need for a role as a map. Click a topic to learn it and tick it off.</p>
+            <button class="link" @click="go('roadmap')">Open roadmaps &rarr;</button>
+          </article>
+          <article class="feature">
+            <span class="icon">&#128221;</span>
+            <h3>Resume check</h3>
+            <p>Paste your resume, pick a role and get a skill match plus 3 tips from the AI coach.</p>
+            <button class="link" @click="go('resume')">Check my resume &rarr;</button>
+          </article>
+          <article class="feature">
+            <span class="icon">&#127908;</span>
+            <h3>Mock interview</h3>
+            <p>Choose a topic and get questions one by one, with AI feedback and a score after every answer.</p>
+            <button class="link" @click="go('interview')">Start practising &rarr;</button>
+          </article>
+        </section>
+
+        <section class="container how">
+          <h2>How it works</h2>
+          <ol>
+            <li><strong>Discover</strong> Tell us your skills and interests to find careers that fit.</li>
+            <li><strong>Learn</strong> Follow the roadmap for your career and tick off topics.</li>
+            <li><strong>Check</strong> Test your resume against the role you want.</li>
+            <li><strong>Practise</strong> Answer interview questions and improve each time.</li>
+          </ol>
+        </section>
+      </div>
+
+      <!-- ================= CAREER GUIDE ================= -->
+      <section class="container narrow" v-if="tab === 'career'">
+        <div class="page-head">
+          <h2>Career guide</h2>
+          <p>Tell us what you know and what you like. The AI coach suggests careers that fit you, and you can open the roadmap for each one.</p>
+        </div>
+
+        <form class="card" @submit.prevent="findCareers">
+          <span class="label">Your skills (click all that you know)</span>
+          <div class="chips">
+            <button type="button" v-for="s in options.skillOptions" :key="s.id" class="chip" :class="{ on: profile.skills.includes(s.id) }"
+              :aria-pressed="profile.skills.includes(s.id)" @click="toggleSkill(s.id)">{{ s.label }}</button>
+          </div>
+
+          <div class="grid3">
+            <div>
+              <label for="interest">Your interest</label>
+              <select id="interest" v-model="profile.interest">
+                <option value="">-- choose --</option>
+                <option v-for="i in options.interests" :key="i.id" :value="i.id">{{ i.label }}</option>
+              </select>
+            </div>
+            <div>
+              <label for="level">Experience</label>
+              <select id="level" v-model="profile.level">
+                <option v-for="l in options.levels" :key="l.id" :value="l.id">{{ l.label }}</option>
+              </select>
+            </div>
+            <div>
+              <label for="goal">Career goal</label>
+              <select id="goal" v-model="profile.goal">
+                <option v-for="g in options.goals" :key="g.id" :value="g.id">{{ g.label }}</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="actions">
+            <button type="submit" class="btn primary" :disabled="loading">{{ loading ? 'Finding careers... (AI may take a few seconds)' : 'Find my careers' }}</button>
+          </div>
+        </form>
+
+        <div v-if="career">
+          <div class="card profile-card">
+            <h3>Student profile</h3>
+            <p><strong>Skills:</strong> {{ career.profile.skills }}</p>
+            <p><strong>Interest:</strong> {{ career.profile.interest }}</p>
+            <p><strong>Experience:</strong> {{ career.profile.level }}</p>
+            <p><strong>Career goal:</strong> {{ career.profile.goal }}</p>
+          </div>
+
+          <h3 class="step-title">AI recommended career paths</h3>
+          <article class="card career" v-for="(c, i) in career.careers" :key="c.id">
+            <div class="career-top">
+              <span class="rank">{{ i + 1 }}</span>
+              <div class="career-title"><h3>{{ c.title }}</h3><p class="muted">{{ c.about }}</p></div>
+              <div class="match">{{ c.score }}%<small>match</small></div>
+            </div>
+            <p><strong>Required skills:</strong>
+              <span class="tag" :class="{ good: c.matched.includes(s) }" v-for="s in c.skills" :key="s">{{ skillLabel(s) }}</span>
+            </p>
+            <p class="muted">Green = you already have it. {{ c.why }}</p>
+            <button class="btn primary" @click="openRoadmap(c.id)">View roadmap &rarr;</button>
+          </article>
+
+          <div class="card">
+            <h4>{{ career.aiUsed ? 'AI advice (local model)' : 'Basic advice' }}</h4>
+            <p class="advice">{{ career.advice }}</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= ROADMAP ================= -->
+      <section class="container" v-if="tab === 'roadmap'">
+        <div class="page-head">
+          <h2>Career roadmaps</h2>
+          <p>Pick a career path. Click any topic to see what it is and where to learn it for free.</p>
+        </div>
+
+        <div class="pills">
+          <button v-for="r in roadmaps" :key="r.id" :class="{ active: current === r.id }" @click="current = r.id; selected = null">{{ r.title }}</button>
+        </div>
+
+        <div class="card rm-head" v-if="currentRoadmap">
+          <div>
+            <h3>{{ currentRoadmap.title }}</h3>
+            <p>{{ currentRoadmap.about }}</p>
+          </div>
+          <div class="rm-progress">
+            <div class="progress"><span :style="{ width: percent + '%' }"></span></div>
+            <small>{{ doneCount }} of {{ topicCount }} topics done ({{ percent }}%)</small>
+          </div>
+        </div>
+
+        <div class="roadmap" v-if="currentRoadmap">
+          <div class="stage" v-for="(stage, si) in currentRoadmap.stages" :key="stage.title">
+            <div class="side left">
+              <button class="topic" v-for="t in sideTopics(stage, 0)" :key="t.i"
+                :class="{ done: done[keyOf(si, t.i)], active: selected && selected.key === keyOf(si, t.i) }"
+                @click="openTopic(stage, si, t)">
+                <span class="check">{{ done[keyOf(si, t.i)] ? '&#10003;' : '' }}</span>{{ t.title }}
+              </button>
+            </div>
+            <div class="stage-node"><span class="num">{{ si + 1 }}</span>{{ stage.title }}</div>
+            <div class="side right">
+              <button class="topic" v-for="t in sideTopics(stage, 1)" :key="t.i"
+                :class="{ done: done[keyOf(si, t.i)], active: selected && selected.key === keyOf(si, t.i) }"
+                @click="openTopic(stage, si, t)">
+                <span class="check">{{ done[keyOf(si, t.i)] ? '&#10003;' : '' }}</span>{{ t.title }}
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- slide-in panel when a topic is clicked -->
+        <div class="overlay" v-if="selected" @click="selected = null"></div>
+        <aside class="drawer" v-if="selected" role="dialog" aria-labelledby="drawer-title">
+          <button class="close" @click="selected = null" aria-label="Close">&times;</button>
+          <p class="eyebrow dark">Stage {{ selected.stageNo }}: {{ selected.stage }}</p>
+          <h3 id="drawer-title">{{ selected.topic.title }}</h3>
+          <p>{{ selected.topic.about }}</p>
+          <p v-if="selected.topic.link"><a class="btn outline-dark" :href="selected.topic.link" target="_blank" rel="noopener">Learn this for free &#8599;</a></p>
+          <button class="btn primary" @click="toggleDone(selected.key)">{{ done[selected.key] ? 'Mark as not done' : 'Mark as done' }}</button>
+        </aside>
+      </section>
+
+      <!-- ================= RESUME ================= -->
+      <section class="container narrow" v-if="tab === 'resume'">
+        <div class="page-head">
+          <h2>Resume check</h2>
+          <p>Choose the job you want, paste your resume text and see how well your skills match.</p>
+        </div>
+        <form class="card" @submit.prevent="checkResume">
+          <label for="job">Job role you want</label>
+          <select id="job" v-model="jobId">
+            <option value="">-- choose a role --</option>
+            <option v-for="job in jobs" :key="job.id" :value="job.id">{{ job.title }}</option>
+          </select>
+
+          <label for="resume">Paste your resume text</label>
+          <textarea id="resume" rows="9" v-model="resume"></textarea>
+
+          <div class="actions">
+            <button type="submit" class="btn primary" :disabled="loading">{{ loading ? 'Checking... (AI may take a few seconds)' : 'Check my resume' }}</button>
+            <button type="button" class="btn soft" @click="useSample">Use sample resume</button>
+          </div>
+        </form>
+
+        <div class="card result" v-if="result">
+          <h3>Skill match: {{ result.score }}%</h3>
+          <div class="progress"><span :style="{ width: result.score + '%' }"></span></div>
+          <p>Found:
+            <span class="tag good" v-for="s in result.found" :key="s">{{ s }}</span>
+            <span v-if="result.found.length === 0">none</span>
+          </p>
+          <p>Missing:
+            <span class="tag bad" v-for="s in result.missing" :key="s">{{ s }}</span>
+            <span v-if="result.missing.length === 0">none</span>
+          </p>
+          <h4>{{ result.aiUsed ? 'AI advice (local model)' : 'Basic advice' }}</h4>
+          <p class="advice">{{ result.advice }}</p>
+        </div>
+      </section>
+
+      <!-- ================= INTERVIEW ================= -->
+      <section class="container narrow" v-if="tab === 'interview'">
+
+        <!-- Step 1: setup -->
+        <div v-if="iv.step === 'setup'">
+          <div class="page-head">
+            <h2>Mock interview</h2>
+            <p>Tell us what you want to practise. You will get one question at a time, with feedback after each answer.</p>
+          </div>
+          <h3 class="step-title">1. What do you want to practise?</h3>
+          <div class="choices">
+            <button v-for="t in ivTopics" :key="t.id" class="choice" :class="{ selected: iv.topic === t.id }" @click="iv.topic = t.id">
+              <span class="icon">{{ t.icon }}</span><strong>{{ t.label }}</strong><small>{{ t.desc }}</small>
+            </button>
+          </div>
+          <h3 class="step-title">2. How many questions?</h3>
+          <div class="pills">
+            <button v-for="n in [3, 5, 7]" :key="n" :class="{ active: iv.total === n }" @click="iv.total = n">{{ n }} questions</button>
+          </div>
+          <button class="btn primary big start" :disabled="!iv.topic" @click="startInterview">Start interview</button>
+        </div>
+
+        <!-- Step 2: one question at a time -->
+        <div v-if="iv.step === 'ask'">
+          <div class="iv-top">
+            <strong>Question {{ iv.index }} of {{ iv.total }}</strong>
+            <div class="progress"><span :style="{ width: ((iv.index - (iv.feedback ? 0 : 1)) / iv.total) * 100 + '%' }"></span></div>
+          </div>
+
+          <div class="card question">
+            <p class="eyebrow dark">{{ iv.aiQ ? 'Question written by local AI' : 'Interview question' }}</p>
+            <h2 v-if="iv.question">{{ iv.question }}</h2>
+            <p v-else class="muted">Preparing your question...</p>
+          </div>
+
+          <form class="card" v-if="iv.question" @submit.prevent="submitAnswer">
+            <label for="answer">Your answer</label>
+            <textarea id="answer" rows="6" v-model="iv.answer" :disabled="!!iv.feedback" placeholder="Answer as you would in a real interview..."></textarea>
+            <div class="actions" v-if="!iv.feedback">
+              <button type="submit" class="btn primary" :disabled="iv.loading">{{ iv.loading ? 'Reviewing your answer...' : 'Submit answer' }}</button>
+            </div>
+          </form>
+
+          <div class="card feedback" v-if="iv.feedback">
+            <div class="score-badge">{{ iv.feedback.score }}<small>/10</small></div>
+            <div>
+              <h4>{{ iv.feedback.aiUsed ? 'AI feedback (local model)' : 'Basic feedback' }}</h4>
+              <p class="advice">{{ iv.feedback.feedback }}</p>
+            </div>
+          </div>
+          <button class="btn primary big" v-if="iv.feedback" @click="nextQuestion">{{ iv.index === iv.total ? 'Finish and see results' : 'Next question' }}</button>
+        </div>
+
+        <!-- Step 3: summary -->
+        <div v-if="iv.step === 'summary'">
+          <div class="page-head">
+            <h2>Interview finished</h2>
+            <p>Average score: <strong>{{ averageScore }}/10</strong></p>
+          </div>
+          <article class="card" v-for="(r, i) in iv.results" :key="i">
+            <h4>{{ i + 1 }}. {{ r.question }}</h4>
+            <p><span class="tag" :class="r.score >= 7 ? 'good' : 'bad'">{{ r.score }}/10</span></p>
+            <p class="advice">{{ r.feedback }}</p>
+          </article>
+          <button class="btn primary big" @click="iv.step = 'setup'">Practise again</button>
+        </div>
+      </section>
+    </main>
+
+    <footer><div class="container">CSE2503 Web Development project &bull; Vue + Node.js + local AI (Ollama)</div></footer>
+  </div>
+
+  <!-- Vue 3 from a CDN (free). To work offline, download this file into /public and change the src. -->
+  <script src="https://unpkg.com/vue@3.4.21/dist/vue.global.prod.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
