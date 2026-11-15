@@ -1,0 +1,845 @@
+{
+  "jobs": [
+    {
+      "id": 1,
+      "title": "Frontend Developer Intern",
+      "skills": [
+        "html",
+        "css",
+        "javascript",
+        "react",
+        "git"
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Full-Stack Developer (Fresher)",
+      "skills": [
+        "html",
+        "css",
+        "javascript",
+        "node.js",
+        "express",
+        "mongodb",
+        "git"
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Backend Developer (Junior)",
+      "skills": [
+        "node.js",
+        "sql",
+        "api",
+        "git",
+        "docker"
+      ]
+    },
+    {
+      "id": 4,
+      "title": "Software Engineer Trainee",
+      "skills": [
+        "java",
+        "dsa",
+        "oop",
+        "dbms",
+        "os"
+      ]
+    },
+    {
+      "id": 5,
+      "title": "Data Analyst Intern",
+      "skills": [
+        "python",
+        "sql",
+        "excel",
+        "pandas",
+        "statistics"
+      ]
+    },
+    {
+      "id": 6,
+      "title": "Machine Learning Trainee",
+      "skills": [
+        "python",
+        "numpy",
+        "pandas",
+        "machine learning",
+        "statistics"
+      ]
+    }
+  ],
+  "roadmaps": [
+    {
+      "id": "frontend",
+      "title": "Frontend Developer",
+      "about": "Learn to build the part of a website that users see and click.",
+      "stages": [
+        {
+          "title": "Web Basics",
+          "topics": [
+            {
+              "title": "HTML",
+              "about": "The structure of every web page: headings, links, forms and semantic tags like header, nav and main.",
+              "link": "https://developer.mozilla.org/en-US/docs/Learn/HTML"
+            },
+            {
+              "title": "CSS",
+              "about": "Colours, spacing, flexbox and grid. This is how a page gets its look and layout.",
+              "link": "https://developer.mozilla.org/en-US/docs/Learn/CSS"
+            },
+            {
+              "title": "Git & GitHub",
+              "about": "Save your work in steps (commits) and share code. Every company expects this.",
+              "link": "https://git-scm.com/book/en/v2"
+            }
+          ]
+        },
+        {
+          "title": "JavaScript",
+          "topics": [
+            {
+              "title": "JS Fundamentals",
+              "about": "Variables, functions, arrays, objects and loops. The base for everything else.",
+              "link": "https://javascript.info/"
+            },
+            {
+              "title": "DOM & Events",
+              "about": "Change the page from code and react to clicks, typing and form submits.",
+              "link": "https://javascript.info/dom-nodes"
+            },
+            {
+              "title": "Fetch & JSON",
+              "about": "Get data from a server without reloading the page.",
+              "link": "https://javascript.info/fetch"
+            }
+          ]
+        },
+        {
+          "title": "Frameworks",
+          "topics": [
+            {
+              "title": "Vue",
+              "about": "A beginner-friendly framework that updates the page automatically when your data changes.",
+              "link": "https://vuejs.org/guide/introduction.html"
+            },
+            {
+              "title": "React",
+              "about": "The most requested framework in job listings. Build pages from small components.",
+              "link": "https://react.dev/learn"
+            },
+            {
+              "title": "Responsive Design",
+              "about": "Make pages work on phones, tablets and laptops using media queries.",
+              "link": "https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Responsive_Design"
+            }
+          ]
+        },
+        {
+          "title": "Ship It",
+          "topics": [
+            {
+              "title": "Testing Basics",
+              "about": "Write small tests so you know your code still works after changes.",
+              "link": "https://jestjs.io/docs/getting-started"
+            },
+            {
+              "title": "Deploy a Site",
+              "about": "Put your project online for free so recruiters can open it.",
+              "link": "https://pages.github.com/"
+            },
+            {
+              "title": "Portfolio Projects",
+              "about": "Build 2 to 3 projects you can explain fully. This is what interviewers ask about.",
+              "link": "https://www.freecodecamp.org/learn"
+            }
+          ]
+        }
+      ],
+      "skills": [
+        "html",
+        "css",
+        "javascript",
+        "react",
+        "git"
+      ],
+      "interests": [
+        "web"
+      ],
+      "goals": [
+        "job",
+        "startup"
+      ],
+      "difficulty": 1
+    },
+    {
+      "id": "fullstack",
+      "title": "Full-Stack Developer",
+      "about": "Build both the website and the server and database behind it.",
+      "stages": [
+        {
+          "title": "Foundations",
+          "topics": [
+            {
+              "title": "HTML & CSS",
+              "about": "Page structure and styling. You need these before anything else.",
+              "link": "https://developer.mozilla.org/en-US/docs/Learn/HTML"
+            },
+            {
+              "title": "JavaScript",
+              "about": "One language for both the browser and the server.",
+              "link": "https://javascript.info/"
+            },
+            {
+              "title": "Git & GitHub",
+              "about": "Version control and teamwork on code.",
+              "link": "https://git-scm.com/book/en/v2"
+            }
+          ]
+        },
+        {
+          "title": "Backend with Node",
+          "topics": [
+            {
+              "title": "Node.js",
+              "about": "Run JavaScript outside the browser and build servers.",
+              "link": "https://nodejs.org/en/learn"
+            },
+            {
+              "title": "HTTP & REST APIs",
+              "about": "How browsers and servers talk: methods, status codes and JSON.",
+              "link": "https://developer.mozilla.org/en-US/docs/Web/HTTP"
+            },
+            {
+              "title": "Express",
+              "about": "A small library that makes writing routes and APIs shorter.",
+              "link": "https://expressjs.com/en/starter/installing.html"
+            }
+          ]
+        },
+        {
+          "title": "Databases",
+          "topics": [
+            {
+              "title": "SQL",
+              "about": "Store and query structured data with SELECT, JOIN and GROUP BY.",
+              "link": "https://sqlbolt.com/"
+            },
+            {
+              "title": "MongoDB",
+              "about": "A document database that stores JSON-like data.",
+              "link": "https://www.mongodb.com/docs/manual/"
+            },
+            {
+              "title": "Connect Front End to API",
+              "about": "Use fetch to call your own API and show the data on the page.",
+              "link": "https://javascript.info/fetch"
+            }
+          ]
+        },
+        {
+          "title": "Production",
+          "topics": [
+            {
+              "title": "Login & Security",
+              "about": "Passwords, sessions and common attacks like XSS and SQL injection.",
+              "link": "https://developer.mozilla.org/en-US/docs/Learn/Server-side/First_steps/Website_security"
+            },
+            {
+              "title": "Docker",
+              "about": "Package your app so it runs the same on any computer.",
+              "link": "https://docs.docker.com/get-started/"
+            },
+            {
+              "title": "API Testing",
+              "about": "Automatically check that every endpoint returns the right answer.",
+              "link": "https://jestjs.io/docs/getting-started"
+            }
+          ]
+        }
+      ],
+      "skills": [
+        "html",
+        "javascript",
+        "node.js",
+        "api",
+        "sql",
+        "git"
+      ],
+      "interests": [
+        "web",
+        "software"
+      ],
+      "goals": [
+        "job",
+        "product",
+        "startup"
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "data",
+      "title": "Data Analyst",
+      "about": "Turn raw data into answers and charts that help people decide.",
+      "stages": [
+        {
+          "title": "Python Basics",
+          "topics": [
+            {
+              "title": "Python Syntax",
+              "about": "Variables, loops, functions and lists.",
+              "link": "https://docs.python.org/3/tutorial/"
+            },
+            {
+              "title": "Files & Functions",
+              "about": "Read CSV files and organise your code into functions.",
+              "link": "https://docs.python.org/3/tutorial/inputoutput.html"
+            },
+            {
+              "title": "Jupyter Notebooks",
+              "about": "Write code and notes together. The standard tool for analysis.",
+              "link": "https://jupyter.org/try"
+            }
+          ]
+        },
+        {
+          "title": "Data Skills",
+          "topics": [
+            {
+              "title": "pandas",
+              "about": "Load, filter, group and clean tables of data.",
+              "link": "https://pandas.pydata.org/docs/user_guide/10min.html"
+            },
+            {
+              "title": "NumPy",
+              "about": "Fast maths on arrays of numbers.",
+              "link": "https://numpy.org/doc/stable/user/absolute_beginners.html"
+            },
+            {
+              "title": "SQL",
+              "about": "Ask questions of a database. Asked in almost every analyst interview.",
+              "link": "https://sqlbolt.com/"
+            }
+          ]
+        },
+        {
+          "title": "Analysis",
+          "topics": [
+            {
+              "title": "Statistics Basics",
+              "about": "Mean, median, spread and correlation, explained simply.",
+              "link": "https://www.khanacademy.org/math/statistics-probability"
+            },
+            {
+              "title": "Data Cleaning",
+              "about": "Fix missing values, duplicates and wrong types before analysing.",
+              "link": "https://www.kaggle.com/learn"
+            },
+            {
+              "title": "Visualization",
+              "about": "Choose the right chart and make it easy to read.",
+              "link": "https://matplotlib.org/stable/tutorials/index.html"
+            }
+          ]
+        },
+        {
+          "title": "Career",
+          "topics": [
+            {
+              "title": "Portfolio Project",
+              "about": "Analyse a real dataset and write up what you found.",
+              "link": "https://www.kaggle.com/datasets"
+            },
+            {
+              "title": "Explain Your Findings",
+              "about": "Practise telling the story of your data in 2 minutes. Use Interview Practice here."
+            },
+            {
+              "title": "Excel Basics",
+              "about": "Pivot tables and formulas. Still used everywhere in business."
+            }
+          ]
+        }
+      ],
+      "skills": [
+        "sql",
+        "python",
+        "excel",
+        "power bi",
+        "statistics"
+      ],
+      "interests": [
+        "data",
+        "ai"
+      ],
+      "goals": [
+        "job",
+        "product"
+      ],
+      "difficulty": 1
+    },
+    {
+      "id": "swe",
+      "title": "Software Engineer (Placements)",
+      "about": "The path most campus placement tests and technical rounds follow.",
+      "stages": [
+        {
+          "title": "Programming Core",
+          "topics": [
+            {
+              "title": "Java or C++",
+              "about": "Pick one language and get comfortable writing programs in it.",
+              "link": "https://dev.java/learn/"
+            },
+            {
+              "title": "OOP Concepts",
+              "about": "Classes, inheritance, polymorphism and encapsulation. Asked in nearly every interview."
+            },
+            {
+              "title": "Problem Solving",
+              "about": "Solve one small problem every day to build speed.",
+              "link": "https://cs50.harvard.edu/x/"
+            }
+          ]
+        },
+        {
+          "title": "DSA",
+          "topics": [
+            {
+              "title": "Arrays & Strings",
+              "about": "The most common coding-test topic. Learn two pointers and sliding window.",
+              "link": "https://visualgo.net/"
+            },
+            {
+              "title": "Stacks, Queues, Lists",
+              "about": "Know how each works and when to use it.",
+              "link": "https://www.geeksforgeeks.org/data-structures/"
+            },
+            {
+              "title": "Trees & Graphs",
+              "about": "Traversals (DFS and BFS), binary search trees and shortest paths.",
+              "link": "https://visualgo.net/"
+            }
+          ]
+        },
+        {
+          "title": "CS Fundamentals",
+          "topics": [
+            {
+              "title": "DBMS",
+              "about": "Normalisation, keys, joins and transactions.",
+              "link": "https://sqlbolt.com/"
+            },
+            {
+              "title": "Operating Systems",
+              "about": "Processes, threads, scheduling and deadlocks.",
+              "link": "https://pages.cs.wisc.edu/~remzi/OSTEP/"
+            },
+            {
+              "title": "Computer Networks",
+              "about": "OSI model, TCP vs UDP, DNS and HTTP.",
+              "link": "https://www.geeksforgeeks.org/computer-network-tutorials/"
+            }
+          ]
+        },
+        {
+          "title": "Placement Prep",
+          "topics": [
+            {
+              "title": "Aptitude Practice",
+              "about": "Percentages, time and work, number series and logic puzzles.",
+              "link": "https://www.indiabix.com/"
+            },
+            {
+              "title": "Mock Interviews",
+              "about": "Practise answering out loud. Use the Interview tab of this app."
+            },
+            {
+              "title": "Resume & Projects",
+              "about": "One page, two projects, measurable results. Use the Resume tab of this app."
+            }
+          ]
+        }
+      ],
+      "skills": [
+        "c-java",
+        "dsa",
+        "oop",
+        "sql",
+        "git"
+      ],
+      "interests": [
+        "software"
+      ],
+      "goals": [
+        "product",
+        "job"
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "ml",
+      "title": "AI / ML Engineer",
+      "about": "Learn the maths, Python tools and models behind modern AI.",
+      "skills": [
+        "python",
+        "mathematics",
+        "machine learning",
+        "statistics"
+      ],
+      "interests": [
+        "ai",
+        "data"
+      ],
+      "goals": [
+        "research",
+        "product",
+        "job"
+      ],
+      "difficulty": 3,
+      "stages": [
+        {
+          "title": "Foundations",
+          "topics": [
+            {
+              "title": "Python",
+              "about": "The main language of AI work. Learn syntax, functions and lists.",
+              "link": "https://docs.python.org/3/tutorial/"
+            },
+            {
+              "title": "Maths for ML",
+              "about": "Vectors, matrices and derivatives. You only need the basics at first.",
+              "link": "https://www.khanacademy.org/math/linear-algebra"
+            },
+            {
+              "title": "Statistics",
+              "about": "Probability, mean, variance and distributions.",
+              "link": "https://www.khanacademy.org/math/statistics-probability"
+            }
+          ]
+        },
+        {
+          "title": "Data Tools",
+          "topics": [
+            {
+              "title": "NumPy",
+              "about": "Fast maths on arrays of numbers.",
+              "link": "https://numpy.org/doc/stable/user/absolute_beginners.html"
+            },
+            {
+              "title": "pandas",
+              "about": "Load, clean and explore tables of data.",
+              "link": "https://pandas.pydata.org/docs/user_guide/10min.html"
+            },
+            {
+              "title": "Matplotlib",
+              "about": "Draw charts to understand your data.",
+              "link": "https://matplotlib.org/stable/tutorials/index.html"
+            }
+          ]
+        },
+        {
+          "title": "Machine Learning",
+          "topics": [
+            {
+              "title": "ML Basics",
+              "about": "Train simple models such as linear regression and decision trees with scikit-learn.",
+              "link": "https://scikit-learn.org/stable/user_guide.html"
+            },
+            {
+              "title": "Model Evaluation",
+              "about": "Train/test split, accuracy, overfitting and cross-validation.",
+              "link": "https://scikit-learn.org/stable/modules/model_evaluation.html"
+            },
+            {
+              "title": "Practice on Kaggle",
+              "about": "Short free courses with real datasets.",
+              "link": "https://www.kaggle.com/learn"
+            }
+          ]
+        },
+        {
+          "title": "Deep Learning & Projects",
+          "topics": [
+            {
+              "title": "Neural Networks",
+              "about": "How layers learn, and how to build one.",
+              "link": "https://www.kaggle.com/learn/intro-to-deep-learning"
+            },
+            {
+              "title": "Build a Project",
+              "about": "Pick a dataset, train a model and explain your results.",
+              "link": "https://www.kaggle.com/competitions"
+            },
+            {
+              "title": "Run Models Locally",
+              "about": "Use Ollama to run a language model on your own computer, like this project does.",
+              "link": "https://ollama.com/"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "python",
+      "title": "Python Developer",
+      "about": "Build backend apps, APIs and automation with Python.",
+      "skills": [
+        "python",
+        "oop",
+        "django/flask",
+        "api",
+        "sql",
+        "git"
+      ],
+      "interests": [
+        "software",
+        "ai",
+        "web"
+      ],
+      "goals": [
+        "job",
+        "startup"
+      ],
+      "difficulty": 2,
+      "stages": [
+        {
+          "title": "Python Core",
+          "topics": [
+            {
+              "title": "Python Syntax",
+              "about": "Variables, loops, functions, lists and dictionaries.",
+              "link": "https://docs.python.org/3/tutorial/"
+            },
+            {
+              "title": "OOP in Python",
+              "about": "Classes, objects and inheritance.",
+              "link": "https://docs.python.org/3/tutorial/classes.html"
+            },
+            {
+              "title": "Modules & Packages",
+              "about": "Split code into files and use libraries.",
+              "link": "https://docs.python.org/3/tutorial/modules.html"
+            }
+          ]
+        },
+        {
+          "title": "Web Frameworks",
+          "topics": [
+            {
+              "title": "Flask",
+              "about": "A small framework. A good first step for building APIs.",
+              "link": "https://flask.palletsprojects.com/"
+            },
+            {
+              "title": "Django",
+              "about": "A bigger framework with login, admin and database tools built in.",
+              "link": "https://docs.djangoproject.com/en/stable/intro/tutorial01/"
+            },
+            {
+              "title": "REST APIs",
+              "about": "HTTP methods, status codes and JSON.",
+              "link": "https://developer.mozilla.org/en-US/docs/Web/HTTP"
+            }
+          ]
+        },
+        {
+          "title": "Data",
+          "topics": [
+            {
+              "title": "SQL",
+              "about": "Query and design databases.",
+              "link": "https://sqlbolt.com/"
+            },
+            {
+              "title": "Django Models",
+              "about": "Use Python classes to work with database tables.",
+              "link": "https://docs.djangoproject.com/en/stable/topics/db/models/"
+            },
+            {
+              "title": "Git & GitHub",
+              "about": "Save and share your code.",
+              "link": "https://git-scm.com/book/en/v2"
+            }
+          ]
+        },
+        {
+          "title": "Ship It",
+          "topics": [
+            {
+              "title": "Testing with pytest",
+              "about": "Automatically check your code works.",
+              "link": "https://docs.pytest.org/en/stable/getting-started.html"
+            },
+            {
+              "title": "Virtual Environments",
+              "about": "Keep each project's libraries separate.",
+              "link": "https://docs.python.org/3/tutorial/venv.html"
+            },
+            {
+              "title": "Deploy a Project",
+              "about": "Put a Python app online for free so recruiters can try it.",
+              "link": "https://www.pythonanywhere.com/"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "questions": {
+    "web": [
+      "Explain the difference between let, const and var in JavaScript.",
+      "What happens when you type a URL in the browser and press Enter?",
+      "What is the difference between SQL and NoSQL databases?",
+      "What is a REST API and which HTTP methods do you know?",
+      "Explain the CSS box model.",
+      "What is event bubbling in JavaScript?"
+    ],
+    "cs": [
+      "What is the difference between an array and a linked list?",
+      "Explain binary search and its time complexity.",
+      "What is the difference between a stack and a queue?",
+      "What is the difference between a process and a thread?",
+      "What is database normalisation and why is it used?",
+      "What is the difference between TCP and UDP?"
+    ],
+    "hr": [
+      "Tell me about yourself.",
+      "Tell me about a project you are proud of.",
+      "Tell me about a time you worked in a team and had a disagreement.",
+      "What are your strengths and weaknesses?",
+      "Why should we hire you?",
+      "Where do you see yourself in five years?"
+    ]
+  },
+  "profile": {
+    "skillOptions": [
+      {
+        "id": "html",
+        "label": "HTML"
+      },
+      {
+        "id": "css",
+        "label": "CSS"
+      },
+      {
+        "id": "javascript",
+        "label": "JavaScript"
+      },
+      {
+        "id": "react",
+        "label": "React"
+      },
+      {
+        "id": "node.js",
+        "label": "Node.js"
+      },
+      {
+        "id": "api",
+        "label": "REST APIs"
+      },
+      {
+        "id": "sql",
+        "label": "SQL"
+      },
+      {
+        "id": "mongodb",
+        "label": "MongoDB"
+      },
+      {
+        "id": "python",
+        "label": "Python"
+      },
+      {
+        "id": "django/flask",
+        "label": "Django / Flask"
+      },
+      {
+        "id": "c-java",
+        "label": "C / C++ / Java"
+      },
+      {
+        "id": "oop",
+        "label": "OOP"
+      },
+      {
+        "id": "dsa",
+        "label": "DSA"
+      },
+      {
+        "id": "git",
+        "label": "Git"
+      },
+      {
+        "id": "excel",
+        "label": "Excel"
+      },
+      {
+        "id": "power bi",
+        "label": "Power BI"
+      },
+      {
+        "id": "statistics",
+        "label": "Statistics"
+      },
+      {
+        "id": "mathematics",
+        "label": "Mathematics"
+      },
+      {
+        "id": "machine learning",
+        "label": "Machine Learning"
+      }
+    ],
+    "interests": [
+      {
+        "id": "web",
+        "label": "Web and app development"
+      },
+      {
+        "id": "ai",
+        "label": "Artificial intelligence"
+      },
+      {
+        "id": "data",
+        "label": "Data and analytics"
+      },
+      {
+        "id": "software",
+        "label": "Software and problem solving"
+      }
+    ],
+    "goals": [
+      {
+        "id": "job",
+        "label": "Get an IT job"
+      },
+      {
+        "id": "product",
+        "label": "Product company"
+      },
+      {
+        "id": "startup",
+        "label": "Startup or freelance"
+      },
+      {
+        "id": "research",
+        "label": "Research or higher studies"
+      }
+    ],
+    "levels": [
+      {
+        "id": "beginner",
+        "label": "Beginner"
+      },
+      {
+        "id": "intermediate",
+        "label": "Intermediate"
+      },
+      {
+        "id": "advanced",
+        "label": "Advanced"
+      }
+    ]
+  }
+}
